@@ -1,80 +1,3 @@
-document.querySelector(".menu-toggle").onclick = function(){
-  document.querySelector(".nav-menu").classList.toggle("active");
-}
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".nav-menu");
-
-// open / close
-toggle.onclick = () => {
-  menu.classList.toggle("active");
-  toggle.classList.toggle("open");
-};
-
-// close when clicking outside
-document.addEventListener("click", function(e){
-  if(!toggle.contains(e.target) && !menu.contains(e.target)){
-    menu.classList.remove("active");
-    toggle.classList.remove("open");
-  }
-});
-
-const plotSlider = document.querySelector('.plot-slider');
-
-document.addEventListener('click', function(e) {
-  const items = document.querySelectorAll('.plot-item');
-
-  if (e.target.classList.contains('next')) {
-    plotSlider.append(items[0]);
-  }
-
-  if (e.target.classList.contains('prev')) {
-    plotSlider.prepend(items[items.length - 1]);
-  }
-});
-
-
-
-const cards = document.querySelectorAll(".property-card");
-
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalLocation = document.getElementById("modalLocation");
-const modalImage = document.getElementById("modalImage");
-const modalProject = document.getElementById("modalProject");
-
-const closeBtn = document.querySelector(".close");
-const whatsappBtn = document.querySelector(".enquiry-btn");
-
-let currentProperty = "";
-
-// OPEN MODAL
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-
-    modal.style.display = "flex";
-
-    modalTitle.innerText = card.dataset.title;
-    modalLocation.innerText = card.dataset.location;
-    modalImage.src = card.dataset.image;
-    modalProject.innerText = card.dataset.project;
-
-    currentProperty = card.dataset.title;
-  });
-});
-
-// CLOSE
-closeBtn.addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-// WHATSAPP
-whatsappBtn.addEventListener("click", () => {
-  let msg = `Hi, I am interested in ${currentProperty}. Please share full details.`;
-  let url = "https://wa.me/918197135303?text=" + encodeURIComponent(msg);
-  window.open(url, "_blank");
-});
-
-
 const testimonials = [
   {
     title: "Excellent Service",
@@ -181,3 +104,91 @@ setInterval(nextSlide, 4000);
 /* INIT */
 createDots();
 showSlide(index);
+
+
+const plotSlider = document.querySelector('.plot-slider');
+
+document.addEventListener('click', function(e) {
+  const items = document.querySelectorAll('.plot-item');
+
+  if (e.target.classList.contains('next')) {
+    plotSlider.append(items[0]);
+  }
+
+  if (e.target.classList.contains('prev')) {
+    plotSlider.prepend(items[items.length - 1]);
+  }
+});
+
+document.getElementById("myForm").addEventListener("submit", function () {
+  
+  // small delay to allow form submit
+  setTimeout(function(){
+    window.location.href = "thankyou.html";
+  }, 1000);
+
+});
+
+function showSuccess(){
+  alert("✅ Your Requirement Submitted Successfully!\nOur team will contact you soon.");
+}
+
+
+
+function openProperty(type){
+
+  let data = {};
+
+  if(type === "coral"){
+    data = {
+      title:"Coral Residency",
+      location:"Kalapatty",
+      image:"./images/villa.jpeg",
+      details:["30+ Acres","2.5–6 cents","Near Kathir College","2BHK ₹70L","Gated Community","Blacktop Roads"]
+    };
+  }
+
+  if(type === "crown"){
+    data = {
+      title:"Crown City",
+      location:"Sathy Road",
+      image:"./images/crown.jpeg",
+      details:["Near SNS College","24/7 Security","Park","Prime Location","DTCP Approved","Ready to Build"]
+    };
+  }
+
+  if(type === "crystal"){
+    data = {
+      title:"Crystal Gateway",
+      location:"Sulur",
+      image:"./images/crystal.jpg",
+      details:["80 Acres","RERA Approved","Mini Theatre","Clubhouse","Near Airport","Luxury Villas"]
+    };
+  }
+
+  document.getElementById("modalTitle").innerText = data.title;
+  document.getElementById("modalLocation").innerText = data.location;
+  document.getElementById("modalImage").src = data.image;
+
+  let html="";
+  data.details.forEach(item=>{
+    html += `<div class="detail-box"><i class="fa-solid fa-circle-check"></i> ${item}</div>`;
+  });
+
+  document.getElementById("modalDetails").innerHTML = html;
+
+  document.getElementById("modal").style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+/* WHATSAPP */
+function openWhatsApp(){
+  let phone="918197135303";
+  let name=document.getElementById("modalTitle").innerText;
+
+  let msg=encodeURIComponent("Hi, I'm interested in "+name+". Please share details.");
+  window.open(`https://wa.me/${phone}?text=${msg}`);
+}
