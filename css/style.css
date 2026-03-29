@@ -8,9 +8,13 @@ body{
   margin:0;
   font-family:'Poppins',sans-serif;
   padding: 0%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
+/* Headings (premium look) */
+h1, h2, h3, h4, h5, .main-title {
+  font-family: 'Playfair Display', serif;
+}
 /* ===== TOP BAR ===== */
 .top-bar{
   background:var(--primary);
@@ -468,7 +472,7 @@ body{
 /* SMALL TITLE */
 .small{
   font-size:14px;
-  color:#2c5d63;
+    color: rgb(198, 156, 0);
   margin-bottom:10px;
   font-weight:600;
 }
@@ -739,7 +743,17 @@ body{
 
   .property-img{height:180px;}
   .modal-img img{height:180px;}
+  .main-title{
+    font-size: 25px !important;
+  }
+  .about-section{
+    padding: 20px !important;
+  }
+  .section-title h1{
+    font-size: 30px !important;
+  }
 }
+
 
 
 
@@ -753,7 +767,7 @@ body{
 .small-title{
   font-size:12px;
   letter-spacing:2px;
-  color:#777;
+    color: rgb(198, 156, 0);
   margin-bottom:10px;
 }
 
@@ -1503,7 +1517,7 @@ body{
   margin-bottom:10px;
 }
 
-.footer-contact i{
+.footer-contact i , .footer-box li i{
   color:#C69C00;
   margin-right:8px;
 }
