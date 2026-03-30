@@ -90,11 +90,12 @@
     <img src="./images/logo.png" class="logo">
 
     <ul class="nav-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Plots</a></li>
-      <li><a href="#">Amenities</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#new">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#plots">Plots</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
 
     <a href="#" class="button" id="openForm">Book Visit</a>
@@ -176,15 +177,18 @@
               <div class="plot-content">
                 <h2 class="plot-title">Premium DTCP Approved Plots</h2>
                 <p class="plot-desc">Invest in high-growth locations with clear titles and immediate registration.</p>
-                <button class="button">Book Site Visit</button>
-              </div>
+            <button class="button" onclick="openWhatsApp()">
+  Book Site Visit
+</button>              </div>
             </li>
+
+
         
             <li class="plot-item" style="background-image: url('https://static.wixstatic.com/media/60b717_e3458c6e980748a88ced46d2c367e603~mv2.jpg/v1/fill/w_1901,h_1043,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/60b717_e3458c6e980748a88ced46d2c367e603~mv2.jpg')">
               <div class="plot-content">
                 <h2 class="plot-title">Plots Near Highway</h2>
                 <p class="plot-desc">Prime plots with easy road access, perfect for residential and commercial use.</p>
-                <button class="button">Enquire Now</button>
+                <button class="button" onclick="openWhatsApp()">Enquire Now</button>
               </div>
             </li>
         
@@ -192,7 +196,7 @@
               <div class="plot-content">
                 <h2 class="plot-title">Gated Community Layout</h2>
                 <p class="plot-desc">Secure plots with street lights, drainage, and wide roads.</p>
-                <button class="button">View Details</button>
+                <button class="button" onclick="openWhatsApp()">View Details</button>
               </div>
             </li>
         
@@ -200,7 +204,7 @@
               <div class="plot-content">
                 <h2 class="plot-title">Affordable EMI Options</h2>
                 <p class="plot-desc">Own your land with flexible EMI plans starting from ₹4999/month.</p>
-                <button class="button">Get Offer</button>
+                <button class="button" onclick="openWhatsApp()">Get Offer</button>
               </div>
             </li>
         
@@ -209,7 +213,7 @@
               <div class="plot-content">
                 <h2 class="plot-title">Affordable EMI Options</h2>
                 <p class="plot-desc">Own your land with flexible EMI plans starting from ₹4999/month.</p>
-                <button class="button">Get Offer</button>
+                <button class="button" onclick="openWhatsApp()">Get Offer</button>
               </div>
             </li>
         
@@ -224,7 +228,7 @@
         </div>
     </div>
 
-<section class="about-section">
+<section class="about-section" id="about">
 
   <div class="about-container">
 
@@ -273,9 +277,9 @@
 
 </section>
 
-<section class="property-section">
+<section class="property-section" id="plots">
   <div class="small-title text-center" data-aos="fade-down">
-    EXCELLENT SERVICE
+    EXCELLENT PLOTS
   </div>
 
   <div class="main-title text-center" data-aos="zoom-in">
@@ -385,7 +389,7 @@
 
   </div>
 </div>
-<section class="process-section">
+<section class="process-section" id="process">
 
   <div class="small-title" data-aos="fade-down">
     EXCELLENT SERVICE
@@ -540,7 +544,7 @@
   </div>
 </section>
 
-<div class="container">
+<div class="container" id="gallery">
 
   <!-- CENTER TITLE -->
   <div class="small-title text-center mt-5" data-aos="fade-down">
@@ -604,7 +608,7 @@
 </div>
 
 <section class="req-section" id="myForm">
-<div class="container">
+<div class="container" id="contact">
   
   <div class="small-title text-center" data-aos="fade-down">
     Contact Us
@@ -945,11 +949,12 @@
   <div class="footer-box">
     <h5>Quick Links</h5>
     <ul>
-      <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-      <li><a href="#"><i class="fas fa-user"></i> About</a></li>
-      <li><a href="#"><i class="fas fa-map-marked-alt"></i> Plots</a></li>
-      <li><a href="#"><i class="fas fa-star"></i> Amenities</a></li>
-      <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+      <li><a href="#new"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="#plots"><i class="fas fa-map-marked-alt"></i> Plots</a></li>
+      <li><a href="#amenities"><i class="fas fa-star"></i> Amenities</a></li>
+      <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </div>
 </div>
@@ -1094,6 +1099,12 @@ Message: ${message}`;
       preloader.style.display = "none";
     }, 500);
   });
+</script>
+
+<script>
+function openWhatsApp() {
+  window.open("https://wa.me/918197135303?text=Hi%20I%20am%20interested%20in%20your%20plots.%0APlease%20share%20details.%0ALocation:%20Coimbatore", "_blank");
+}
 </script>
 </body>
 </html>
