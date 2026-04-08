@@ -1776,6 +1776,46 @@ h1, h2, h3, h4, h5, .main-title {
   border-radius:8px;
   cursor:pointer;
 }
+.popup-form {
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.popup-form.show {
+  display: flex;
+  opacity: 1;
+}/* INPUT BOX */
+.pd-input-box {
+  position: relative;
+}
+
+/* ICON */
+.pd-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 14px;
+  z-index: 2;
+}
+
+/* INPUT FIELD */
+.pd-input {
+  padding-left: 35px;
+}
+
+/* MOBILE BOX */
+.pd-mobile-box .pd-code {
+  max-width: 60px;
+  margin-right: 5px;
+  border-radius: 6px 0 0 6px;
+}
+
+/* FIX MOBILE ICON POSITION */
+.pd-mobile-box .pd-icon {
+  left: 10px;
+}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){

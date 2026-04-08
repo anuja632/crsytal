@@ -24,7 +24,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
 
 </head>
@@ -627,61 +627,101 @@
 
         <div class="req-line" data-aos="zoom-in"></div>
 
-        <form action="https://formsubmit.co/abianu632@gmail.com" method="POST" onsubmit="showSuccess()">
+        <form id="reqForm" action="https://formsubmit.co/abianu632@gmail.com" method="POST" onsubmit="showSuccess()">
 
           <input type="hidden" name="_subject" value="New Property Requirement!">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+          <input type="hidden" name="_next" value="thankyou.html">
 
           <div class="row g-3">
+<div class="row g-3">
 
-            <div class="col-md-6" data-aos="flip-up">
-              <select name="property_type" class="form-select req-select">
-                <option>Property Type</option>
-                <option>Apartment</option>
-                <option>Villa</option>
-                <option>Plot</option>
-              </select>
-            </div>
+  <!-- Property Type -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-house-door"></i>
+      <select name="property_type" class="form-select pd-input">
+        <option>Property Type</option>
+        <option>Apartment</option>
+        <option>Villa</option>
+        <option>Plot</option>
+      </select>
+    </div>
+  </div>
 
-            <div class="col-md-6" data-aos="flip-up">
-              <select name="transaction_type" class="form-select req-select">
-                <option>Transaction Type</option>
-                <option>Buy</option>
-                <option>Rent</option>
-              </select>
-            </div>
+  <!-- Transaction -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-arrow-left-right"></i>
+      <select name="transaction_type" class="form-select pd-input">
+        <option>Transaction Type</option>
+        <option>Buy</option>
+        <option>Rent</option>
+      </select>
+    </div>
+  </div>
 
-            <div class="col-md-6" data-aos="zoom-in">
-              <input type="text" name="city" class="form-control req-input" placeholder="City *" required>
-            </div>
+  <!-- City -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-geo-alt"></i>
+      <input type="text" name="city" class="form-control pd-input" placeholder="City *" required>
+    </div>
+  </div>
 
-            <div class="col-md-6" data-aos="zoom-in">
-              <input type="text" name="price" class="form-control req-input" placeholder="Price *">
-            </div>
+  <!-- Price -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-currency-rupee"></i>
+      <input type="text" name="price" class="form-control pd-input" placeholder="Price *">
+    </div>
+  </div>
 
-            <div class="col-12" data-aos="fade-up">
-              <textarea name="requirement" class="form-control req-textarea" placeholder="Enter Your Requirement"></textarea>
-            </div>
+  <!-- Requirement -->
+  <div class="col-12">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-chat-left-text"></i>
+      <textarea name="requirement" class="form-control pd-input" placeholder="Enter Your Requirement"></textarea>
+    </div>
+  </div>
 
-            <div class="col-md-6" data-aos="zoom-in">
-              <input type="text" name="name" class="form-control req-input" placeholder="Full Name *" required>
-            </div>
+  <!-- Name -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-person"></i>
+      <input type="text" name="name" class="form-control pd-input" placeholder="Full Name *" required>
+    </div>
+  </div>
 
-            <div class="col-md-6" data-aos="zoom-in">
-              <input type="email" name="email" class="form-control req-input" placeholder="Email *" required>
-            </div>
+  <!-- Email -->
+  <div class="col-md-6">
+    <div class="pd-input-box">
+      <i class="pd-icon bi bi-envelope"></i>
+      <input type="email" name="email" class="form-control pd-input" placeholder="Email *" required>
+    </div>
+  </div>
 
-            <div class="col-2" data-aos="flip-up">
-              <div class="form-control ">+91
-                
-              </div>
-            </div>
+  <!-- Mobile -->
+  <div class="col-12">
+    <div class="pd-mobile-box d-flex">
 
-            <div class="col-10" data-aos="zoom-in">
-              <input type="text" name="mobile" class="form-control req-input" placeholder="Mobile *" required>
-            </div>
+      <div class="form-control text-center pd-code">+91</div>
 
+      <div class="pd-input-box w-100">
+        <i class="pd-icon bi bi-telephone"></i>
+        <input 
+          type="tel" 
+          name="mobile" 
+          class="form-control pd-input" 
+          placeholder="Enter Mobile Number *" 
+          required
+        >
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
 
             <div class="col-12" data-aos="zoom-in">
@@ -1061,7 +1101,7 @@ popup.addEventListener("click", (e)=>{
 
 // WHATSAPP SUBMIT
 form.addEventListener("submit", function(e){
-  e.preventDefault();
+ 
 
   const name = this.querySelector("input[type=text]").value;
   const phone = this.querySelector("input[type=tel]").value;
@@ -1082,6 +1122,16 @@ Message: ${message}`;
   window.open(url, "_blank");
 
   popup.style.display = "none";
+  
+});
+document.getElementById("reqForm").addEventListener("submit", function () {
+
+  alert("✅ Your request has been submitted successfully!");
+
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 500);
+
 });
 
 </script>
@@ -1094,6 +1144,17 @@ Message: ${message}`;
       preloader.style.display = "none";
     }, 500);
   });
+  window.addEventListener("load", () => {
+  if (!localStorage.getItem("popupShown")) {
+    setTimeout(() => {
+      popup.style.display = "flex";
+      localStorage.setItem("popupShown", "true");
+    }, 10000);
+  }
+  setTimeout(() => {
+  popup.classList.add("show");
+}, 10000);
+});
 </script>
 
 <script>
